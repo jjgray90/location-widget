@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 const Weather = ({ location }) => {
   const [weather, setWeather] = useState();
-  const [forecast, setForecast] = useState();
+  const [forecastToggle, setForecastToggle] = useState();
   const key = process.env.REACT_APP_WEATHER_API_KEY;
 
   const fetchWeather = async (key, location) => {
@@ -24,12 +24,12 @@ const Weather = ({ location }) => {
   };
 
   const displayForecast = () => {
-    if (!forecast) {
-      setForecast("weather--forecast");
-    } else setForecast();
+    if (!forecastToggle) {
+      setForecastToggle("weather--forecast");
+    } else setForecastToggle();
   };
 
-  const forecastJSX = weather.forecast.forecastday.map((obj) => {
+  const forecastJSX = weather?.forecast.forecastday.map((obj) => {
     return <div key={obj.date_epoch}>{obj.day.avgtemp_c}</div>;
   });
 
@@ -40,10 +40,10 @@ const Weather = ({ location }) => {
   }, [key, location]);
 
   return (
-    <div className={`weather ${forecast}`} onClick={() => displayForecast()}>
+    <div className={`weather ${forecastToggle}`} onClick={() => displayForecast()}>
       {!weather ? (
         <p>loading...</p>
-      ) : !forecast ? (
+      ) : !forecastToggle ? (
         <>
           <p className="weather__location">{weather?.location.name}</p>
           <p className="weather__current-temp">{weather?.current.temp_c}°</p>
