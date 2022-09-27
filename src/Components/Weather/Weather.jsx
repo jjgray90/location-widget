@@ -9,7 +9,7 @@ const Weather = ({ location }) => {
   const fetchWeather = async (key, location) => {
     try {
       const response = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${location.latitude},${location.longitude}&days=5`
+        `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${location.latitude},${location.longitude}&days=5`
       );
 
       if (!response.ok) {
