@@ -1,19 +1,26 @@
 .weather {
-  border: 2px solid red;
-  border-radius: 20px;
-  padding: 1rem;
-  height: 200px;
-  width: 200px;
-  font-size: 1.1rem;
+  cursor: pointer;
+  background-color: lightcyan;
+  color: grey;
+  border-radius: 30px;
+  padding: 2rem;
+  height: 300px;
+  width: 300px;
+  font-size: 1.8rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
+  &--forecast {
+    // display: none;
+    width: 100%;
+  }
+
   &__current-temp {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   &__current-icon {
-    width: 40px;
+    width: 60px;
   }
 }

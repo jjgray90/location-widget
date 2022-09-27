@@ -4,10 +4,29 @@
   box-sizing: border-box;
 }
 .app {
+  padding: 2rem;
+  background-color: lightcoral;
   height: 100vh;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+  &__welcome {
+    text-align: end;
+    font-size: 2rem;
+    color: lightgray;
+
+    .welcome__message {
+      font-size: 5rem;
+    }
+  }
+
+  &__widgets {
+    padding: 2rem 0;
+    height: fit-content;
+    // width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 100%));
+    grid-template-rows: auto;
+    // justify-items: center;
+    align-items: center;
+  }
 }
