@@ -2,6 +2,7 @@
   "name": "location-widget",
   "version": "0.1.0",
   "private": true,
+  "homepage":"https://jjgray90.github.io/location-widget",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -16,7 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mkrc": "./node_modules/.bin/mkrc"
+    "mkrc": "./node_modules/.bin/mkrc",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -37,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "mkrc-dan-test": "^0.0.1",
     "sass": "^1.54.8"
   }
