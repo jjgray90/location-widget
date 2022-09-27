@@ -22,14 +22,14 @@ const News = () => {
     }
   };
 
-  const reduceNews = (news) => {
-    const newsArr = [];
-    for (let i = 0; i < 5; i++) {
-      newsArr.push(news[i]);
-    }
+  // const reduceNews = (news) => {
+  //   const newsArr = [];
+  //   for (let i = 0; i < 5; i++) {
+  //     newsArr.push(news[i]);
+  //   }
 
-    setNews(newsArr);
-  };
+  //   setNews(newsArr);
+  // };
 
   const newsJSX = news?.map((item) => {
     return <div key={item.title}>{item.title}</div>;

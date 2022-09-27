@@ -1,7 +1,7 @@
 import "./App.scss";
 import { useEffect, useState } from "react";
 import Weather from "./Components/Weather/Weather";
-import News from "./Components/News/News";
+// import News from "./Components/News/News";
 
 const App = () => {
   const [location, setLocation] = useState();
