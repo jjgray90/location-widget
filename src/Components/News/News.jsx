@@ -43,7 +43,7 @@ const News = () => {
   //   if (news.length > 0) {
   //     reduceNews(news);
   //   }
-  // }, [news]);
+  // }, [news]) ;
 
   return <div className="news">{newsJSX}</div>;
 };
