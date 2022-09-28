@@ -32,12 +32,10 @@
   &__forecast {
     width: 100%;
     background-color: rgb(218, 252, 252);
-    // border-radius: 20px;
     display: flex;
     padding: 1rem;
     flex-direction: column;
     justify-content: space-between;
-    // font-size: 1.4rem;
 
     .forecast__hl {
       font-size: 3.5rem;
@@ -56,18 +54,18 @@
     }
 
     .forecast__sun {
+      width: 100%;
       display: flex;
-      justify-content: space-between;
+      gap: 0.4rem;
       align-items: center;
       font-size: 0.8rem;
 
       .sun__rise,
       .sun__set {
-        // border: 1px solid blue;
-        width: 100%;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: flex-start;
+        gap: 0.3rem;
       }
 
       .sun__icon {
