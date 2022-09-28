@@ -5,7 +5,7 @@ import Weather from "./Components/Weather/Weather";
 
 const App = () => {
   const [location, setLocation] = useState();
-  const [timeOfDay, setTimeOfDay] = useState("morning");
+  const [timeOfDay, setTimeOfDay] = useState("Morning");
 
   const date = new Date();
   const currentHour = date.getHours();
@@ -22,9 +22,9 @@ const App = () => {
 
   useEffect(() => {
     if (currentHour > 18) {
-      setTimeOfDay("evening");
+      setTimeOfDay("Evening");
     } else if (currentHour > 12) {
-      setTimeOfDay("afternoon");
+      setTimeOfDay("Afternoon");
     }
 
     getLocation();

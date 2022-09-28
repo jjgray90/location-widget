@@ -12,8 +12,13 @@
   justify-content: space-between;
 
   &--forecast {
-    // display: none;
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0.3rem;
+    justify-content: center;
+    padding: 1rem;
   }
 
   &__current-temp {
@@ -22,5 +27,52 @@
 
   &__current-icon {
     width: 60px;
+  }
+
+  &__forecast {
+    width: 100%;
+    background-color: rgb(218, 252, 252);
+    // border-radius: 20px;
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    // font-size: 1.4rem;
+
+    .forecast__hl {
+      font-size: 3.5rem;
+
+      span {
+        color: lightgray;
+      }
+    }
+
+    .forecast__icon {
+      width: 60px;
+    }
+
+    .forecast__condition {
+      font-size: 1.2rem;
+    }
+
+    .forecast__sun {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+
+      .sun__rise,
+      .sun__set {
+        // border: 1px solid blue;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      .sun__icon {
+        width: 20px;
+      }
+    }
   }
 }

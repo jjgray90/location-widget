@@ -1,5 +1,7 @@
 import "./Weather.scss";
 import { useState, useEffect } from "react";
+import sunrise from "../../assets/sunrise.svg";
+import sunset from "../../assets/sunset.svg";
 
 const Weather = ({ location }) => {
   const [weather, setWeather] = useState();
@@ -23,14 +25,41 @@ const Weather = ({ location }) => {
     }
   };
 
-  const displayForecast = () => {
-    if (!forecastToggle) {
-      setForecastToggle("weather--forecast");
-    } else setForecastToggle();
-  };
+  const displayForecast = () =>
+    !forecastToggle
+      ? setForecastToggle("weather--forecast")
+      : setForecastToggle();
 
   const forecastJSX = weather?.forecast.forecastday.map((obj) => {
-    return <div key={obj.date_epoch}>{obj.day.avgtemp_c}</div>;
+    const d = new Date(obj.date_epoch * 1000);
+    return (
+      <div className="weather__forecast" key={obj.date_epoch}>
+        <p className="forecast__day">
+          {d.toLocaleDateString("en-GB", { weekday: "long" })}
+        </p>
+        <p className="forecast__hl">
+          {Math.round(obj.day.maxtemp_c)}°{" "}
+          <span>{Math.round(obj.day.mintemp_c)}°</span>
+        </p>
+        <img
+          className="forecast__icon"
+          src={obj.day.condition.icon}
+          alt="weather symbol"
+        />
+        <p className="forecast__condition">{obj.day.condition.text}</p>
+        <div className="forecast__sun">
+          <div className="sun__rise">
+            <img className="sun__icon" src={sunrise} alt="sunrise" />
+            <span> {obj.astro.sunrise}</span>
+          </div>
+          |
+          <div className="sun__set">
+            <img className="sun__icon" src={sunset} alt="sunset" />
+            <span>{obj.astro.sunset}</span>
+          </div>
+        </div>
+      </div>
+    );
   });
 
   useEffect(() => {
@@ -40,7 +69,10 @@ const Weather = ({ location }) => {
   }, [key, location]);
 
   return (
-    <div className={`weather ${forecastToggle}`} onClick={() => displayForecast()}>
+    <div
+      className={`weather ${forecastToggle}`}
+      onClick={() => displayForecast()}
+    >
       {!weather ? (
         <p>loading...</p>
       ) : !forecastToggle ? (
@@ -56,12 +88,12 @@ const Weather = ({ location }) => {
             {weather?.current.condition.text}
           </p>
           <p className="weather__current-hl">
-            H:{weather?.forecast.forecastday[0].day.maxtemp_c}° L:
-            {weather?.forecast.forecastday[0].day.mintemp_c}°
+            H:{Math.round(weather?.forecast.forecastday[0].day.maxtemp_c)}° L:
+            {Math.round(weather?.forecast.forecastday[0].day.mintemp_c)}°
           </p>
         </>
       ) : (
-        <div>{forecastJSX}</div>
+        <>{forecastJSX}</>
       )}
     </div>
   );

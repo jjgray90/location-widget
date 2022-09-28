@@ -22,11 +22,9 @@
   &__widgets {
     padding: 2rem 0;
     height: fit-content;
-    // width: fit-content;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 100%));
     grid-template-rows: auto;
-    // justify-items: center;
     align-items: center;
   }
 }
