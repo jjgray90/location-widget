@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: all 0.5s ease-out;
 
   &--forecast {
     width: 100%;
@@ -19,6 +20,7 @@
     gap: 0.3rem;
     justify-content: center;
     padding: 1rem;
+    transition: all 0.5s ease-out;
   }
 
   &__current-temp {
@@ -31,11 +33,26 @@
 
   &__forecast {
     width: 100%;
+    max-width: 300px;
     background-color: rgb(218, 252, 252);
     display: flex;
     padding: 1rem;
     flex-direction: column;
     justify-content: space-between;
+    animation: fadeIn 4s;
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      background-color: lightcyan;
+    }
 
     .forecast__hl {
       font-size: 3.5rem;
